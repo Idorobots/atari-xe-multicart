@@ -4954,7 +4954,7 @@ grid 2.54 mm</description>
 </class>
 </classes>
 <parts>
-<part name="J1" library="atari-800" deviceset="ATARI-800" device="-MEDIUM"/>
+<part name="J1" library="atari-800" deviceset="ATARI-800" device=""/>
 <part name="IC1" library="74xx-eu" deviceset="74*373" device="N" technology="HCT"/>
 <part name="IC2" library="st-microelectronics" deviceset="M27C4001" device="B"/>
 <part name="P+1" library="supply1" deviceset="VCC" device=""/>
@@ -5298,19 +5298,11 @@ grid 2.54 mm</description>
 <pinref part="IC2" gate="G$1" pin="D6"/>
 <wire x1="132.08" y1="66.04" x2="124.46" y2="66.04" width="0.1524" layer="91"/>
 </segment>
-<segment>
-<pinref part="IC1" gate="A" pin="2D"/>
-<wire x1="22.86" y1="33.02" x2="27.94" y2="33.02" width="0.1524" layer="91"/>
-</segment>
 </net>
 <net name="D7" class="0">
 <segment>
 <pinref part="J1" gate="_D7" pin="P"/>
 <wire x1="12.7" y1="30.48" x2="22.86" y2="30.48" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="IC1" gate="A" pin="1D"/>
-<wire x1="22.86" y1="30.48" x2="27.94" y2="30.48" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="IC2" gate="G$1" pin="D7"/>
