@@ -4968,7 +4968,6 @@ grid 2.54 mm</description>
 <part name="R2" library="resistor" deviceset="R-US_" device="0204/7" value="4k7"/>
 <part name="JP2" library="pinhead" deviceset="PINHD-1X3" device=""/>
 <part name="P+5" library="supply1" deviceset="VCC" device=""/>
-<part name="R3" library="resistor" deviceset="R-US_" device="0207/15" value="4k7"/>
 <part name="R4" library="resistor" deviceset="R-US_" device="0204/7" value="4k7"/>
 <part name="JP1" library="pinhead" deviceset="PINHD-1X3" device=""/>
 <part name="P+3" library="supply1" deviceset="VCC" device=""/>
@@ -5006,30 +5005,29 @@ grid 2.54 mm</description>
 <instance part="J1" gate="_A6" x="10.16" y="88.9" rot="MR0"/>
 <instance part="J1" gate="_A5" x="10.16" y="91.44" rot="MR0"/>
 <instance part="J1" gate="_A4" x="10.16" y="93.98" rot="MR0"/>
-<instance part="J1" gate="_RD4" x="10.16" y="121.92" rot="MR0"/>
-<instance part="J1" gate="_RD5" x="10.16" y="129.54" rot="MR0"/>
+<instance part="J1" gate="_RD4" x="10.16" y="127" rot="MR0"/>
+<instance part="J1" gate="_RD5" x="10.16" y="124.46" rot="MR0"/>
 <instance part="J1" gate="_CCTL" x="10.16" y="58.42" rot="MR0"/>
 <instance part="J1" gate="_A10" x="10.16" y="78.74" rot="MR0"/>
 <instance part="J1" gate="_R/W" x="10.16" y="55.88" rot="MR0"/>
 <instance part="J1" gate="_CLK2" x="10.16" y="114.3" rot="MR0"/>
-<instance part="J1" gate="_VCC" x="10.16" y="127" rot="MR0"/>
-<instance part="J1" gate="_GND" x="10.16" y="124.46" rot="MR0"/>
+<instance part="J1" gate="_VCC" x="10.16" y="121.92" rot="MR0"/>
+<instance part="J1" gate="_GND" x="10.16" y="119.38" rot="MR0"/>
 <instance part="IC1" gate="A" x="40.64" y="43.18" rot="MR180"/>
 <instance part="IC2" gate="G$1" x="111.76" y="63.5"/>
-<instance part="P+1" gate="VCC" x="27.94" y="134.62"/>
+<instance part="P+1" gate="VCC" x="27.94" y="129.54"/>
 <instance part="P+2" gate="VCC" x="129.54" y="101.6"/>
 <instance part="P+4" gate="VCC" x="27.94" y="78.74"/>
 <instance part="GND1" gate="1" x="127" y="30.48"/>
 <instance part="GND2" gate="1" x="50.8" y="68.58"/>
 <instance part="IC1" gate="P" x="40.64" y="73.66" rot="MR270"/>
 <instance part="GND4" gate="1" x="22.86" y="50.8"/>
-<instance part="GND7" gate="1" x="27.94" y="116.84"/>
+<instance part="GND7" gate="1" x="27.94" y="114.3"/>
 <instance part="R1" gate="G$1" x="132.08" y="91.44" rot="R90"/>
 <instance part="R2" gate="G$1" x="60.96" y="22.86" rot="R90"/>
 <instance part="JP2" gate="A" x="71.12" y="12.7" rot="R270"/>
 <instance part="P+5" gate="VCC" x="73.66" y="33.02"/>
-<instance part="R3" gate="G$1" x="20.32" y="121.92" rot="R180"/>
-<instance part="R4" gate="G$1" x="20.32" y="129.54" rot="R180"/>
+<instance part="R4" gate="G$1" x="20.32" y="124.46" rot="R180"/>
 <instance part="JP1" gate="A" x="58.42" y="12.7" rot="R270"/>
 <instance part="P+3" gate="VCC" x="60.96" y="33.02"/>
 <instance part="JP3" gate="A" x="83.82" y="12.7" rot="R270"/>
@@ -5334,12 +5332,12 @@ grid 2.54 mm</description>
 <segment>
 <pinref part="J1" gate="_VCC" pin="P"/>
 <pinref part="P+1" gate="VCC" pin="VCC"/>
-<wire x1="12.7" y1="127" x2="27.94" y2="127" width="0.1524" layer="91"/>
-<wire x1="27.94" y1="127" x2="27.94" y2="129.54" width="0.1524" layer="91"/>
+<wire x1="12.7" y1="121.92" x2="27.94" y2="121.92" width="0.1524" layer="91"/>
+<wire x1="27.94" y1="121.92" x2="27.94" y2="124.46" width="0.1524" layer="91"/>
 <pinref part="R4" gate="G$1" pin="1"/>
-<wire x1="27.94" y1="129.54" x2="27.94" y2="132.08" width="0.1524" layer="91"/>
-<wire x1="25.4" y1="129.54" x2="27.94" y2="129.54" width="0.1524" layer="91"/>
-<junction x="27.94" y="129.54"/>
+<wire x1="27.94" y1="124.46" x2="27.94" y2="127" width="0.1524" layer="91"/>
+<wire x1="25.4" y1="124.46" x2="27.94" y2="124.46" width="0.1524" layer="91"/>
+<junction x="27.94" y="124.46"/>
 </segment>
 <segment>
 <pinref part="P+5" gate="VCC" pin="VCC"/>
@@ -5380,12 +5378,8 @@ grid 2.54 mm</description>
 <segment>
 <pinref part="J1" gate="_GND" pin="P"/>
 <pinref part="GND7" gate="1" pin="GND"/>
-<wire x1="12.7" y1="124.46" x2="27.94" y2="124.46" width="0.1524" layer="91"/>
-<wire x1="27.94" y1="124.46" x2="27.94" y2="121.92" width="0.1524" layer="91"/>
-<pinref part="R3" gate="G$1" pin="1"/>
-<wire x1="27.94" y1="121.92" x2="27.94" y2="119.38" width="0.1524" layer="91"/>
-<wire x1="25.4" y1="121.92" x2="27.94" y2="121.92" width="0.1524" layer="91"/>
-<junction x="27.94" y="121.92"/>
+<wire x1="12.7" y1="119.38" x2="27.94" y2="119.38" width="0.1524" layer="91"/>
+<wire x1="27.94" y1="119.38" x2="27.94" y2="116.84" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="IC2" gate="G$1" pin="!E"/>
@@ -5492,14 +5486,7 @@ grid 2.54 mm</description>
 <segment>
 <pinref part="J1" gate="_RD5" pin="P"/>
 <pinref part="R4" gate="G$1" pin="2"/>
-<wire x1="12.7" y1="129.54" x2="15.24" y2="129.54" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$14" class="0">
-<segment>
-<pinref part="J1" gate="_RD4" pin="P"/>
-<pinref part="R3" gate="G$1" pin="2"/>
-<wire x1="12.7" y1="121.92" x2="15.24" y2="121.92" width="0.1524" layer="91"/>
+<wire x1="12.7" y1="124.46" x2="15.24" y2="124.46" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
@@ -5507,6 +5494,7 @@ grid 2.54 mm</description>
 </sheets>
 <errors>
 <approved hash="101,1,12.7,111.76,J1_S4,P,,,,"/>
+<approved hash="101,1,12.7,127,J1_RD4,P,,,,"/>
 <approved hash="101,1,12.7,55.88,J1_R/W,P,,,,"/>
 <approved hash="101,1,12.7,114.3,J1_CLK2,P,,,,"/>
 <approved hash="202,1,27.94,30.48,IC1,1D,,,,"/>
