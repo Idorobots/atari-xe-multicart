@@ -7,7 +7,7 @@
 
 #define CCTL ((unsigned char *) 0xD500)
 #define CART_START 0xBFFA
-#define COPY_AREA 0x8000
+#define COPY_AREA 0x1000 // NOTE This may collide with DOS.
 
 void __fastcall__ menu(void) {
   unsigned char off = 0;
@@ -40,7 +40,7 @@ void __fastcall__ menu(void) {
 }
 
 int main(void) {
-  // Backup menu() into the second cartridge slot not to loose it later.
+  // Backup menu() into the RAM not to loose it later.
   memcpy((void *) COPY_AREA, (const void *) menu, 1024); // FIXME Compute the size somehow.
 
   // Jump into the backup.
