@@ -6,12 +6,19 @@
 #include <unistd.h>
 
 #define CCTL ((unsigned char *) 0xD500)
-#define COPY_AREA 0x1000 // NOTE This may collide with DOS.
+#define DOSVEC ((unsigned int *) 0x0A)
+
+#define COPY_AREA 0x7C00 // NOTE Right before the second cart bank.
+
 #define RESET 0xFFFC
 
-unsigned char off = 0; // NOTE Game offset in BSS.
+unsigned char off = 0;   // NOTE Game offset in BSS.
+unsigned int DOSVEC_save;
 
 void __fastcall__ execute(void) {
+  // Restore the DOS vector.
+  *DOSVEC = DOSVEC_save;
+
   // Swap the game.
   *CCTL = off;
 
@@ -35,11 +42,15 @@ int main(void) {
   scanf("%d", &off);
 
   if(off > 0) {
-    // Backup exec() into the RAM not to loose it later.
+    // Backup execute() into the RAM not to loose it later.
     memcpy((void *) COPY_AREA, (const void *) execute, 1024); // FIXME Compute the size somehow.
 
-    // Jump into the backup.
-    __asm__ ("jmp %w", COPY_AREA);
+    // Spoof the return address so we jump back into execute().
+    DOSVEC_save = *DOSVEC;
+    *DOSVEC = COPY_AREA;
+
+    // Do the cleanup.
+    exit(1);
   }
 
   printf("Bye!\n");
