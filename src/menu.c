@@ -1,26 +1,49 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <conio.h>
 #include <atari.h>
+#include <unistd.h>
 
-extern char _dos_type;                          /* bss variable */
+#define CCTL ((unsigned char *) 0xD500)
+#define COPY_AREA 0x1000 // NOTE This may collide with DOS.
+#define RESET 0xFFFC
+
+unsigned char off = 0; // NOTE Game offset in BSS.
+
+void __fastcall__ execute(void) {
+  // Swap the game.
+  *CCTL = off;
+
+  // Reset the console.
+  __asm__ ("jmp (%w)", RESET);
+}
 
 int main(void) {
-  unsigned char off = 0;
-
   clrscr();
-  printf("Select game (1-32): ");
+  printf("    _  _            _  __  _____ \n");
+  printf("   /_\\| |_ __ _ _ _(_) \\ \\/ / __|\n");
+  printf("  / _ \\  _/ _` | '_| |  >  <| _| \n");
+  printf(" /_/ \\_\\__\\__,_|_| |_| /_/\\_\\___|\n");
+  printf("  __  __      _ _   _             _   \n");
+  printf(" |  \\/  |_  _| | |_(_)__ __ _ _ _| |_ \n");
+  printf(" | |\\/| | || | |  _| / _/ _` | '_|  _|\n");
+  printf(" |_|  |_|\\_,_|_|\\__|_\\__\\__,_|_|  \\__|\n\n");
 
-  if (_dos_type != 1) scanf("%d", &off);
+  // TODO Needs a better selection menu.
+  printf("Select a game (1-32): ");
+  scanf("%d", &off);
 
-  // TODO Copy this program into the RAM.
+  if(off > 0) {
+    // Backup exec() into the RAM not to loose it later.
+    memcpy((void *) COPY_AREA, (const void *) execute, 1024); // FIXME Compute the size somehow.
 
-  printf("You may now [RESET] your console.");
+    // Jump into the backup.
+    __asm__ ("jmp %w", COPY_AREA);
+  }
 
-  // Swap the game.
-  *((unsigned char *) 0xD500) = off & 0x3F; // NOTE At most 6 bits should be used.
-
-  // TODO Jump into the newly swapped game.
+  printf("Bye!\n");
+  sleep(1);
 
   return 0;
 }
