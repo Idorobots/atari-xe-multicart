@@ -6,14 +6,22 @@
 #include <unistd.h>
 
 #define CCTL ((unsigned char *) 0xD500)
-#define COPY_AREA 0x1000 // NOTE This may collide with DOS.
+#define DOSVEC ((unsigned int *) 0x0A)
+
+#define BOOTSTRAP_SIZE 0x400                     // FIXME Compute the size somehow.
+#define BOOTSTRAP_AREA (0x8000 - BOOTSTRAP_SIZE) // NOTE Right before the second cart bank.
+
 #define RESET 0xFFFC
 
-unsigned char off = 0; // NOTE Game offset in BSS.
+unsigned char selection;
+unsigned int DOSVEC_save;
 
-void __fastcall__ execute(void) {
+void __fastcall__ bootstrap(void) {
+  // Restore the DOS vector.
+  *DOSVEC = DOSVEC_save;
+
   // Swap the game.
-  *CCTL = off;
+  *CCTL = selection;
 
   // Reset the console.
   __asm__ ("jmp (%w)", RESET);
@@ -32,14 +40,18 @@ int main(void) {
 
   // TODO Needs a better selection menu.
   printf("Select a game (1-32): ");
-  scanf("%d", &off);
+  scanf("%d", &selection);
 
-  if(off > 0) {
-    // Backup exec() into the RAM not to loose it later.
-    memcpy((void *) COPY_AREA, (const void *) execute, 1024); // FIXME Compute the size somehow.
+  if(selection > 0) {
+    // Backup bootstrap() into the RAM not to loose it later.
+    memcpy((void *) BOOTSTRAP_AREA, (const void *) bootstrap, BOOTSTRAP_SIZE);
 
-    // Jump into the backup.
-    __asm__ ("jmp %w", COPY_AREA);
+    // Spoof the return address so we jump back into bootstrap().
+    DOSVEC_save = *DOSVEC;
+    *DOSVEC = BOOTSTRAP_AREA;
+
+    // Do the cleanup.
+    exit(1);
   }
 
   printf("Bye!\n");
