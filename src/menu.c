@@ -6,13 +6,20 @@
 #include <unistd.h>
 
 #define CCTL ((unsigned char *) 0xD500)
-#define CART_START 0xBFFA
 #define COPY_AREA 0x1000 // NOTE This may collide with DOS.
+#define RESET 0xFFFC
 
-void __fastcall__ menu(void) {
-  unsigned char off = 0;
-  unsigned int *address = (unsigned int *) 0xBFFA;
+unsigned char off = 0; // NOTE Game offset in BSS.
 
+void __fastcall__ execute(void) {
+  // Swap the game.
+  *CCTL = off;
+
+  // Reset the console.
+  __asm__ ("jmp (%w)", RESET);
+}
+
+int main(void) {
   clrscr();
   printf("    _  _            _  __  _____ \n");
   printf("   /_\\| |_ __ _ _ _(_) \\ \\/ / __|\n");
@@ -27,24 +34,16 @@ void __fastcall__ menu(void) {
   printf("Select a game (1-32): ");
   scanf("%d", &off);
 
-  // Swap the game.
-  *CCTL = off;
-
-  // Jump into the newly swapped game.
   if(off > 0) {
-    __asm__ ("jmp (%w)", CART_START);
+    // Backup exec() into the RAM not to loose it later.
+    memcpy((void *) COPY_AREA, (const void *) execute, 1024); // FIXME Compute the size somehow.
+
+    // Jump into the backup.
+    __asm__ ("jmp %w", COPY_AREA);
   }
 
   printf("Bye!\n");
   sleep(1);
-}
-
-int main(void) {
-  // Backup menu() into the RAM not to loose it later.
-  memcpy((void *) COPY_AREA, (const void *) menu, 1024); // FIXME Compute the size somehow.
-
-  // Jump into the backup.
-  __asm__ ("jmp %w", COPY_AREA);
 
   return 0;
 }
