@@ -7468,7 +7468,6 @@ Source: AVX .. aphvc.pdf</description>
 <part name="R2" library="resistor" deviceset="R-US_" device="0204/7" value="4k7"/>
 <part name="JP2" library="pinhead" deviceset="PINHD-1X3" device=""/>
 <part name="P+5" library="supply1" deviceset="VCC" device=""/>
-<part name="R4" library="resistor" deviceset="R-US_" device="0204/7" value="4k7"/>
 <part name="JP1" library="pinhead" deviceset="PINHD-1X3" device=""/>
 <part name="P+3" library="supply1" deviceset="VCC" device=""/>
 <part name="JP3" library="pinhead" deviceset="PINHD-1X3" device=""/>
@@ -7528,7 +7527,6 @@ Source: AVX .. aphvc.pdf</description>
 <instance part="R2" gate="G$1" x="71.12" y="22.86" rot="R90"/>
 <instance part="JP2" gate="A" x="81.28" y="12.7" rot="R270"/>
 <instance part="P+5" gate="VCC" x="83.82" y="33.02"/>
-<instance part="R4" gate="G$1" x="5.08" y="20.32" rot="R180"/>
 <instance part="JP1" gate="A" x="68.58" y="12.7" rot="R270"/>
 <instance part="P+3" gate="VCC" x="71.12" y="33.02"/>
 <instance part="JP3" gate="A" x="93.98" y="12.7" rot="R270"/>
@@ -7818,8 +7816,8 @@ Source: AVX .. aphvc.pdf</description>
 <segment>
 <pinref part="P+4" gate="VCC" pin="VCC"/>
 <wire x1="12.7" y1="20.32" x2="12.7" y2="22.86" width="0.1524" layer="91"/>
-<pinref part="R4" gate="G$1" pin="1"/>
-<wire x1="10.16" y1="20.32" x2="12.7" y2="20.32" width="0.1524" layer="91"/>
+<pinref part="J1" gate="_RD5" pin="P"/>
+<wire x1="-2.54" y1="20.32" x2="12.7" y2="20.32" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="IC2" gate="G$1" pin="VCC"/>
@@ -8031,13 +8029,6 @@ Source: AVX .. aphvc.pdf</description>
 <wire x1="0" y1="55.88" x2="0" y2="53.34" width="0.1524" layer="91"/>
 <pinref part="IC3" gate="A" pin="I1"/>
 <wire x1="0" y1="53.34" x2="2.54" y2="53.34" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$13" class="0">
-<segment>
-<pinref part="J1" gate="_RD5" pin="P"/>
-<wire x1="-2.54" y1="20.32" x2="0" y2="20.32" width="0.1524" layer="91"/>
-<pinref part="R4" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$17" class="0">
