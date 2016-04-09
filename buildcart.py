@@ -2,25 +2,33 @@
 
 import argparse
 import os.path
+import sys
+
+def read_file(name):
+    d = {}
+    with open(name, "rb") as f:
+        data = f.read()
+        d = {
+            'title': os.path.splitext(os.path.basename(name))[0],
+            'data': data,
+            'size': len(data)
+        }
+    return d
 
 def read_roms(roms):
     cart8 = []
     cart16 = []
 
     for r in roms:
-        with open(r, "rb") as romfile:
-            data = romfile.read()
-            rom = {
-                'title': os.path.splitext(os.path.basename(r))[0],
-                'data': data,
-                'size': len(data)
-            }
-            if rom['size'] == 8192: # Standard 8KB rom.
-                cart8.append(rom)
-            elif rom['size'] == 16384: # Standard 16KB rom.
-                cart16.append(rom)
-            else:
-                raise Exception("Bad rom file: " + r)
+        rom = read_file(r)
+        if rom['size'] == 8192: # Standard 8KB rom.
+            cart8.append(rom)
+        elif rom['size'] == 16384: # Standard 16KB rom.
+            cart16.append(rom)
+        else:
+            raise Exception("Bad rom file: " + r)
+        cart8.sort(key = lambda x: x['title'])
+        cart16.sort(key = lambda x: x['title'])
     return cart8, cart16
 
 def build_menu(cart8, cart16):
@@ -38,8 +46,15 @@ def build_menu(cart8, cart16):
     print(out[0:-2]) # Remove the last coma & newline.
 
 def build_cart(menu, cart8, cart16):
-    # TODO
-    pass
+    m = read_file(menu)
+    sys.stdout.buffer.write(m['data'])
+    for c in cart8:
+        sys.stdout.buffer.write(c['data'])
+    if len(cart8) // 2 == 1:
+        # Extra padding for 16 KB carts alignment.
+        sys.stdout.buffer.write(bytes(8192))
+    for c in cart16:
+        sys.stdout.buffer.write(c['data'])
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
