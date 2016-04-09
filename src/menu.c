@@ -1,6 +1,10 @@
 #include "menu.h"
 
-unsigned char selection;
+const GAME_INFO games[] = {
+#include "games.c"
+};
+
+unsigned char selection_mask;
 unsigned int DOSVEC_save;
 
 void __fastcall__ bootstrap(void) {
@@ -8,7 +12,7 @@ void __fastcall__ bootstrap(void) {
   *DOSVEC = DOSVEC_save;
 
   // Swap the game.
-  *CCTL = selection;
+  *CCTL = selection_mask;
 
   // Reset the console.
   __asm__ ("jmp (%w)", RESET);
@@ -25,24 +29,36 @@ int main(void) {
   printf(" | |\\/| | || | |  _| / _/ _` | '_|  _|\n");
   printf(" |_|  |_|\\_,_|_|\\__|_\\__\\__,_|_|  \\__|\n\n");
 
-  // TODO Needs a better selection menu.
-  printf("Select a game (1-32): ");
-  scanf("%d", &selection);
+  for(;;) {
+    unsigned int i = 0;
+    const unsigned int num_games = sizeof(games)/sizeof(games[0]);
+    int n = 0;
 
-  if(selection > 0) {
-    // Backup bootstrap() into the RAM not to loose it later.
-    memcpy((void *) BOOTSTRAP_AREA, (const void *) bootstrap, BOOTSTRAP_SIZE);
+    for(; i < num_games; ++i) {
+      printf("%d. %s\n", i + 1, games[i].title);
+    }
 
-    // Spoof the return address so we jump back into bootstrap().
-    DOSVEC_save = *DOSVEC;
-    *DOSVEC = BOOTSTRAP_AREA;
+    printf("\nSelect a game (1-%d): ", num_games);
+    scanf("%d", &n);
 
-    // Do the cleanup.
-    exit(1);
+    if((n > 0) && (n < (num_games + 1))) {
+      selection_mask = games[n-1].mask;
+
+      // Backup bootstrap() into the RAM not to loose it later.
+      memcpy((void *) BOOTSTRAP_AREA, (const void *) bootstrap, BOOTSTRAP_SIZE);
+
+      // Spoof the return address so we jump back into bootstrap().
+      DOSVEC_save = *DOSVEC;
+      *DOSVEC = BOOTSTRAP_AREA;
+
+      // Do the cleanup.
+      exit(1);
+    }
+
+    printf("Bad selection!\n");
+    sleep(1);
+    clrscr();
   }
-
-  printf("Bye!\n");
-  sleep(1);
 
   return 0;
 }
