@@ -1,7 +1,7 @@
 CC = cl65
 CFLAGS = -v -tatari 
 
-LINKER_CONFIG = menu.cfg
+LINKER_CONFIG = src/menu.cfg
 LDFLAGS = -C$(LINKER_CONFIG)
 
 export CC65_INC = /usr/share/cc65/include/
@@ -10,7 +10,9 @@ export LD65_LIB = /usr/share/cc65/lib/
 export LD65_OBJ = /usr/share/cc65/lib/
 export LD65_CFG = /usr/share/cc65/cfg/
 
-SRC = menu.c
+VPATH = src
+
+SRC = src/menu.c
 
 TARGET = menu.bin
 
@@ -23,4 +25,4 @@ $(TARGET):
 clean:
 	$(RM) $(TARGET).map
 	$(RM) $(TARGET)
-	$(RM) *.o
+	$(RM) src/*.o
