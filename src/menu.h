@@ -21,7 +21,7 @@ typedef struct game_info {
   const char *title;
 } GAME_INFO;
 
-#define MASK_RD5 0x40 // NOTE Game occupies both cartridge memory banks.
+#define MASK_RD5 0x80 // NOTE Game occupies both cartridge memory banks.
 
 #define CART_8KB(offset, title) {(offset), (title)}
 #define CART_16KB(offset, title) {(offset) | MASK_RD5, (title)}
