@@ -36,11 +36,11 @@ def build_menu(cart8, cart16):
     for c in cart8:
         c['out'] = 'CART_8KB({0}, "{1}"),\n'.format(i, c['title'])
         i = i + 1
-    if len(cart8) // 2 == 1:
-        # 16 KB carts have to start at an even offset.
-        i = i + 1
+    # 16 KB carts have to start at an even offset.
+    if len(cart8) % 2 == 0:
+       i = i + 1
     for c in cart16:
-        c['out'] = 'CART_16KB({0}, "{1}"),\n'.format(i + 1, c['title'])
+        c['out'] = 'CART_16KB({0}, "{1}"),\n'.format(i+1, c['title']) # 16KB games start in the second bank.
         i = i + 2
     carts = cart8 + cart16
     carts.sort(key = lambda x: x['title'])
