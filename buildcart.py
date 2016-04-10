@@ -33,16 +33,20 @@ def read_roms(roms):
 
 def build_menu(cart8, cart16):
     i = 1
-    out = ""
     for c in cart8:
-        out = out + 'CART_8KB({0}, "{1}"),\n'.format(i, c['title'])
+        c['out'] = 'CART_8KB({0}, "{1}"),\n'.format(i, c['title'])
         i = i + 1
     if len(cart8) // 2 == 1:
         # 16 KB carts have to start at an even offset.
         i = i + 1
     for c in cart16:
-        out = out + 'CART_16KB({0}, "{1}"),\n'.format(i + 1, c['title'])
+        c['out'] = 'CART_16KB({0}, "{1}"),\n'.format(i + 1, c['title'])
         i = i + 2
+    carts = cart8 + cart16
+    carts.sort(key = lambda x: x['title'])
+    out = ""
+    for c in carts:
+        out = out + c['out']
     print(out[0:-2]) # Remove the last coma & newline.
 
 def build_cart(menu, cart8, cart16):
