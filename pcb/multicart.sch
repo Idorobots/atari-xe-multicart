@@ -7369,11 +7369,11 @@ thin small outline package</description>
 <part name="GND7" library="supply1" deviceset="GND" device=""/>
 <part name="R1" library="resistor" deviceset="R-US_" device="0204/7" value="4k7"/>
 <part name="R2" library="resistor" deviceset="R-US_" device="0204/7" value="4k7"/>
-<part name="JP2" library="pinhead" deviceset="PINHD-1X3" device=""/>
-<part name="P+5" library="supply1" deviceset="VCC" device=""/>
-<part name="JP1" library="pinhead" deviceset="PINHD-1X3" device=""/>
-<part name="P+3" library="supply1" deviceset="VCC" device=""/>
 <part name="JP3" library="pinhead" deviceset="PINHD-1X3" device=""/>
+<part name="P+5" library="supply1" deviceset="VCC" device=""/>
+<part name="JP2" library="pinhead" deviceset="PINHD-1X3" device=""/>
+<part name="P+3" library="supply1" deviceset="VCC" device=""/>
+<part name="JP4" library="pinhead" deviceset="PINHD-1X3" device=""/>
 <part name="R5" library="resistor" deviceset="R-US_" device="0204/7" value="4k7"/>
 <part name="P+6" library="supply1" deviceset="VCC" device=""/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
@@ -7385,7 +7385,7 @@ thin small outline package</description>
 <part name="P+7" library="supply1" deviceset="VCC" device=""/>
 <part name="Q1" library="transistor-small-signal" deviceset="BS170" device=""/>
 <part name="IC3" library="atmel" deviceset="27C080" device="32P6"/>
-<part name="JP4" library="pinhead" deviceset="PINHD-1X3" device=""/>
+<part name="JP1" library="pinhead" deviceset="PINHD-1X3" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -7430,11 +7430,11 @@ thin small outline package</description>
 <instance part="GND7" gate="1" x="5.08" y="119.38"/>
 <instance part="R1" gate="G$1" x="68.58" y="17.78" rot="R90"/>
 <instance part="R2" gate="G$1" x="81.28" y="17.78" rot="R90"/>
-<instance part="JP2" gate="A" x="91.44" y="5.08" rot="R270"/>
+<instance part="JP3" gate="A" x="91.44" y="5.08" rot="R270"/>
 <instance part="P+5" gate="VCC" x="93.98" y="27.94"/>
-<instance part="JP1" gate="A" x="78.74" y="5.08" rot="R270"/>
+<instance part="JP2" gate="A" x="78.74" y="5.08" rot="R270"/>
 <instance part="P+3" gate="VCC" x="81.28" y="27.94"/>
-<instance part="JP3" gate="A" x="104.14" y="5.08" rot="R270"/>
+<instance part="JP4" gate="A" x="104.14" y="5.08" rot="R270"/>
 <instance part="R5" gate="G$1" x="106.68" y="17.78" rot="R90"/>
 <instance part="P+6" gate="VCC" x="106.68" y="27.94"/>
 <instance part="GND3" gate="1" x="116.84" y="20.32"/>
@@ -7447,7 +7447,7 @@ thin small outline package</description>
 <instance part="P+7" gate="VCC" x="50.8" y="73.66"/>
 <instance part="Q1" gate="1" x="15.24" y="60.96"/>
 <instance part="IC3" gate="G$1" x="134.62" y="53.34"/>
-<instance part="JP4" gate="A" x="66.04" y="5.08" rot="R270"/>
+<instance part="JP1" gate="A" x="66.04" y="5.08" rot="R270"/>
 </instances>
 <busses>
 <bus name="A[0..12]">
@@ -7613,11 +7613,11 @@ thin small outline package</description>
 <net name="D0" class="0">
 <segment>
 <pinref part="J1" gate="_D0" pin="P"/>
-<wire x1="-2.54" y1="48.26" x2="22.86" y2="48.26" width="0.1524" layer="91"/>
+<wire x1="-2.54" y1="48.26" x2="17.78" y2="48.26" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="IC1" gate="A" pin="8D"/>
-<wire x1="22.86" y1="48.26" x2="27.94" y2="48.26" width="0.1524" layer="91"/>
+<wire x1="17.78" y1="48.26" x2="27.94" y2="48.26" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="152.4" y1="81.28" x2="144.78" y2="81.28" width="0.1524" layer="91"/>
@@ -7627,11 +7627,11 @@ thin small outline package</description>
 <net name="D1" class="0">
 <segment>
 <pinref part="J1" gate="_D1" pin="P"/>
-<wire x1="-2.54" y1="45.72" x2="22.86" y2="45.72" width="0.1524" layer="91"/>
+<wire x1="-2.54" y1="45.72" x2="17.78" y2="45.72" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="IC1" gate="A" pin="7D"/>
-<wire x1="22.86" y1="45.72" x2="27.94" y2="45.72" width="0.1524" layer="91"/>
+<wire x1="17.78" y1="45.72" x2="27.94" y2="45.72" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="152.4" y1="78.74" x2="144.78" y2="78.74" width="0.1524" layer="91"/>
@@ -7641,11 +7641,11 @@ thin small outline package</description>
 <net name="D2" class="0">
 <segment>
 <pinref part="J1" gate="_D2" pin="P"/>
-<wire x1="-2.54" y1="43.18" x2="22.86" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="-2.54" y1="43.18" x2="17.78" y2="43.18" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="IC1" gate="A" pin="6D"/>
-<wire x1="22.86" y1="43.18" x2="27.94" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="17.78" y1="43.18" x2="27.94" y2="43.18" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="152.4" y1="76.2" x2="144.78" y2="76.2" width="0.1524" layer="91"/>
@@ -7655,11 +7655,11 @@ thin small outline package</description>
 <net name="D3" class="0">
 <segment>
 <pinref part="J1" gate="_D3" pin="P"/>
-<wire x1="-2.54" y1="40.64" x2="22.86" y2="40.64" width="0.1524" layer="91"/>
+<wire x1="-2.54" y1="40.64" x2="17.78" y2="40.64" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="IC1" gate="A" pin="5D"/>
-<wire x1="22.86" y1="40.64" x2="27.94" y2="40.64" width="0.1524" layer="91"/>
+<wire x1="17.78" y1="40.64" x2="27.94" y2="40.64" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="152.4" y1="73.66" x2="144.78" y2="73.66" width="0.1524" layer="91"/>
@@ -7669,11 +7669,11 @@ thin small outline package</description>
 <net name="D4" class="0">
 <segment>
 <pinref part="J1" gate="_D4" pin="P"/>
-<wire x1="-2.54" y1="38.1" x2="22.86" y2="38.1" width="0.1524" layer="91"/>
+<wire x1="-2.54" y1="38.1" x2="17.78" y2="38.1" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="IC1" gate="A" pin="4D"/>
-<wire x1="22.86" y1="38.1" x2="27.94" y2="38.1" width="0.1524" layer="91"/>
+<wire x1="17.78" y1="38.1" x2="27.94" y2="38.1" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="152.4" y1="71.12" x2="144.78" y2="71.12" width="0.1524" layer="91"/>
@@ -7683,11 +7683,11 @@ thin small outline package</description>
 <net name="D5" class="0">
 <segment>
 <pinref part="J1" gate="_D5" pin="P"/>
-<wire x1="-2.54" y1="35.56" x2="22.86" y2="35.56" width="0.1524" layer="91"/>
+<wire x1="-2.54" y1="35.56" x2="17.78" y2="35.56" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="IC1" gate="A" pin="3D"/>
-<wire x1="22.86" y1="35.56" x2="27.94" y2="35.56" width="0.1524" layer="91"/>
+<wire x1="17.78" y1="35.56" x2="27.94" y2="35.56" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="152.4" y1="68.58" x2="144.78" y2="68.58" width="0.1524" layer="91"/>
@@ -7697,7 +7697,7 @@ thin small outline package</description>
 <net name="D6" class="0">
 <segment>
 <pinref part="J1" gate="_D6" pin="P"/>
-<wire x1="-2.54" y1="33.02" x2="22.86" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="-2.54" y1="33.02" x2="17.78" y2="33.02" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="152.4" y1="66.04" x2="144.78" y2="66.04" width="0.1524" layer="91"/>
@@ -7705,13 +7705,13 @@ thin small outline package</description>
 </segment>
 <segment>
 <pinref part="IC1" gate="A" pin="2D"/>
-<wire x1="22.86" y1="33.02" x2="27.94" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="17.78" y1="33.02" x2="27.94" y2="33.02" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="D7" class="0">
 <segment>
 <pinref part="J1" gate="_D7" pin="P"/>
-<wire x1="-2.54" y1="30.48" x2="22.86" y2="30.48" width="0.1524" layer="91"/>
+<wire x1="-2.54" y1="30.48" x2="17.78" y2="30.48" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="152.4" y1="63.5" x2="144.78" y2="63.5" width="0.1524" layer="91"/>
@@ -7719,7 +7719,7 @@ thin small outline package</description>
 </segment>
 <segment>
 <pinref part="IC1" gate="A" pin="1D"/>
-<wire x1="22.86" y1="30.48" x2="27.94" y2="30.48" width="0.1524" layer="91"/>
+<wire x1="17.78" y1="30.48" x2="27.94" y2="30.48" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="VCC" class="0">
@@ -7752,7 +7752,7 @@ thin small outline package</description>
 </segment>
 <segment>
 <pinref part="P+5" gate="VCC" pin="VCC"/>
-<pinref part="JP2" gate="A" pin="1"/>
+<pinref part="JP3" gate="A" pin="1"/>
 <wire x1="93.98" y1="25.4" x2="93.98" y2="7.62" width="0.1524" layer="91"/>
 </segment>
 <segment>
@@ -7808,14 +7808,14 @@ thin small outline package</description>
 <segment>
 <pinref part="IC1" gate="A" pin="4Q"/>
 <wire x1="53.34" y1="38.1" x2="88.9" y2="38.1" width="0.1524" layer="91"/>
-<pinref part="JP2" gate="A" pin="3"/>
+<pinref part="JP3" gate="A" pin="3"/>
 <wire x1="88.9" y1="38.1" x2="88.9" y2="7.62" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$12" class="0">
 <segment>
 <wire x1="91.44" y1="38.1" x2="124.46" y2="38.1" width="0.1524" layer="91"/>
-<pinref part="JP2" gate="A" pin="2"/>
+<pinref part="JP3" gate="A" pin="2"/>
 <wire x1="91.44" y1="38.1" x2="91.44" y2="7.62" width="0.1524" layer="91"/>
 <pinref part="IC3" gate="G$1" pin="A17"/>
 </segment>
@@ -7823,14 +7823,14 @@ thin small outline package</description>
 <net name="N$6" class="0">
 <segment>
 <pinref part="IC1" gate="A" pin="3Q"/>
-<pinref part="JP1" gate="A" pin="3"/>
+<pinref part="JP2" gate="A" pin="3"/>
 <wire x1="53.34" y1="35.56" x2="76.2" y2="35.56" width="0.1524" layer="91"/>
 <wire x1="76.2" y1="35.56" x2="76.2" y2="7.62" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$10" class="0">
 <segment>
-<pinref part="JP1" gate="A" pin="2"/>
+<pinref part="JP2" gate="A" pin="2"/>
 <wire x1="124.46" y1="35.56" x2="78.74" y2="35.56" width="0.1524" layer="91"/>
 <wire x1="78.74" y1="35.56" x2="78.74" y2="7.62" width="0.1524" layer="91"/>
 <pinref part="IC3" gate="G$1" pin="A18"/>
@@ -7838,7 +7838,7 @@ thin small outline package</description>
 </net>
 <net name="N$11" class="0">
 <segment>
-<pinref part="JP1" gate="A" pin="1"/>
+<pinref part="JP2" gate="A" pin="1"/>
 <pinref part="R2" gate="G$1" pin="1"/>
 <wire x1="81.28" y1="7.62" x2="81.28" y2="12.7" width="0.1524" layer="91"/>
 </segment>
@@ -7846,14 +7846,14 @@ thin small outline package</description>
 <net name="N$2" class="0">
 <segment>
 <pinref part="IC1" gate="A" pin="7Q"/>
-<pinref part="JP3" gate="A" pin="3"/>
+<pinref part="JP4" gate="A" pin="3"/>
 <wire x1="53.34" y1="45.72" x2="101.6" y2="45.72" width="0.1524" layer="91"/>
 <wire x1="101.6" y1="45.72" x2="101.6" y2="7.62" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$15" class="0">
 <segment>
-<pinref part="JP3" gate="A" pin="2"/>
+<pinref part="JP4" gate="A" pin="2"/>
 <wire x1="104.14" y1="7.62" x2="104.14" y2="45.72" width="0.1524" layer="91"/>
 <wire x1="104.14" y1="45.72" x2="124.46" y2="45.72" width="0.1524" layer="91"/>
 <pinref part="IC3" gate="G$1" pin="A14"/>
@@ -7861,7 +7861,7 @@ thin small outline package</description>
 </net>
 <net name="N$16" class="0">
 <segment>
-<pinref part="JP3" gate="A" pin="1"/>
+<pinref part="JP4" gate="A" pin="1"/>
 <pinref part="R5" gate="G$1" pin="1"/>
 <wire x1="106.68" y1="7.62" x2="106.68" y2="12.7" width="0.1524" layer="91"/>
 </segment>
@@ -7948,21 +7948,21 @@ thin small outline package</description>
 <net name="N$9" class="0">
 <segment>
 <pinref part="R1" gate="G$1" pin="1"/>
-<pinref part="JP4" gate="A" pin="1"/>
+<pinref part="JP1" gate="A" pin="1"/>
 <wire x1="68.58" y1="12.7" x2="68.58" y2="7.62" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$13" class="0">
 <segment>
 <pinref part="IC3" gate="G$1" pin="A19"/>
-<pinref part="JP4" gate="A" pin="2"/>
+<pinref part="JP1" gate="A" pin="2"/>
 <wire x1="124.46" y1="33.02" x2="66.04" y2="33.02" width="0.1524" layer="91"/>
 <wire x1="66.04" y1="33.02" x2="66.04" y2="7.62" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$14" class="0">
 <segment>
-<pinref part="JP4" gate="A" pin="3"/>
+<pinref part="JP1" gate="A" pin="3"/>
 <wire x1="63.5" y1="7.62" x2="63.5" y2="33.02" width="0.1524" layer="91"/>
 <pinref part="IC1" gate="A" pin="2Q"/>
 <wire x1="63.5" y1="33.02" x2="53.34" y2="33.02" width="0.1524" layer="91"/>
@@ -7974,16 +7974,15 @@ thin small outline package</description>
 <errors>
 <approved hash="101,1,-2.54,68.58,J1_R/W,P,,,,"/>
 <approved hash="101,1,-2.54,66.04,J1_CLK2,P,,,,"/>
-<approved hash="202,1,27.94,30.48,IC1,1D,,,,"/>
-<approved hash="104,1,124.46,86.36,IC2,VPP,N$9,,,"/>
 <approved hash="114,1,78.74,88.8365,IC5,C,I0,,,"/>
 <approved hash="114,1,78.74,88.8365,IC5,C,I1,,,"/>
 <approved hash="114,1,78.74,88.8365,IC5,D,I0,,,"/>
 <approved hash="114,1,78.74,88.8365,IC5,D,I1,,,"/>
 <approved hash="113,1,-4.58042,78.74,J1,,,,,"/>
-<approved hash="113,1,82.6812,15.0029,JP2,,,,,"/>
-<approved hash="113,1,69.9812,15.0029,JP1,,,,,"/>
-<approved hash="113,1,95.3812,15.0029,JP3,,,,,"/>
+<approved hash="113,1,92.8412,7.38293,JP3,,,,,"/>
+<approved hash="113,1,80.1412,7.38293,JP2,,,,,"/>
+<approved hash="113,1,105.541,7.38293,JP4,,,,,"/>
+<approved hash="113,1,67.4412,7.38293,JP1,,,,,"/>
 </errors>
 </schematic>
 </drawing>
