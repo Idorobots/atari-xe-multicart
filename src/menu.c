@@ -28,6 +28,8 @@ int main(void) {
   printf(" |  \\/  |_  _| | |_(_)__ __ _ _ _| |_ \n");
   printf(" | |\\/| | || | |  _| / _/ _` | '_|  _|\n");
   printf(" |_|  |_|\\_,_|_|\\__|_\\__\\__,_|_|  \\__|\n\n");
+  printf("%40s", "http://idorobots.org\n\n");
+  sleep(2);
 
   for(;;) {
     unsigned int i = 0;
@@ -35,10 +37,14 @@ int main(void) {
     int n = 0;
 
     for(; i < num_games; ++i) {
-      printf("%d. %s\n", i + 1, games[i].title);
+      if(i > 0 && i % 22 == 0) {
+        printf("\n\nPress any key to continue...");
+        cgetc();
+      }
+      printf("\n%2d. %s", i + 1, games[i].title);
     }
 
-    printf("\nSelect a game (1-%d): ", num_games);
+    printf("\n\nSelect a game (1-%d): ", num_games);
     scanf("%d", &n);
 
     if((n > 0) && (n < (num_games + 1))) {
