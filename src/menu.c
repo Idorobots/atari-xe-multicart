@@ -20,10 +20,14 @@ void __fastcall__ bootstrap(void) {
 
 int main(void) {
   clrscr();
-  printf("    _  _            _  __  _____ \n");
-  printf("   /_\\| |_ __ _ _ _(_) \\ \\/ / __|\n");
-  printf("  / _ \\  _/ _` | '_| |  >  <| _| \n");
-  printf(" /_/ \\_\\__\\__,_|_| |_| /_/\\_\\___|\n");
+  printf("                       _________ \n");
+  printf("                      |     [Z] |\n");
+  printf("                      |XE    \"  |\n");
+  printf("                      |Multicart|\n");
+  printf(" __  _____            |         |\n");
+  printf(" \\ \\/ / __|            \\       /\n");
+  printf("  >  <| _|              |||||||\n");
+  printf(" /_/\\_\\___|             |||||||\n");
   printf("  __  __      _ _   _             _   \n");
   printf(" |  \\/  |_  _| | |_(_)__ __ _ _ _| |_ \n");
   printf(" | |\\/| | || | |  _| / _/ _` | '_|  _|\n");

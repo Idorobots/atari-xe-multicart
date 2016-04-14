@@ -96,8 +96,7 @@
 </layers>
 <board>
 <plain>
-<text x="24.765" y="15.24" size="2.54" layer="21" font="vector" rot="R180" align="center">Atari XE</text>
-<text x="44.45" y="15.24" size="2.54" layer="21" font="vector" rot="R180" align="center">Multicart</text>
+<text x="34.29" y="15.24" size="2.54" layer="21" font="vector" rot="R180" align="center">XE Multicart</text>
 <text x="60.325" y="62.23" size="1.27" layer="21" font="vector" rot="R90">idorobots.org</text>
 <text x="34.29" y="11.43" size="1.27" layer="21" font="vector" rot="R180" align="center">rev. 2.0</text>
 <hole x="8.89" y="78.74" drill="2.8"/>

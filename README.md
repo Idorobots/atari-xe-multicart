@@ -1,4 +1,4 @@
-# Atari 400/800/XL/XE multicart
+# XE Multicart
 
 A multi-game cartridge for the Atari 400/800/XL/XE with software game selection which can hold up to 127 games!
 
