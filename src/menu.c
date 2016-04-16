@@ -21,11 +21,11 @@ void __fastcall__ bootstrap(void) {
 int main(void) {
   clrscr();
   printf("                       _________ \n");
+  printf("                      |         |\n");
   printf("                      |     [Z] |\n");
   printf("                      |XE    \"  |\n");
-  printf("                      |Multicart|\n");
-  printf(" __  _____            |         |\n");
-  printf(" \\ \\/ / __|            \\       /\n");
+  printf(" __  _____            |Multicart|\n");
+  printf(" \\ \\/ / __|           |_       _|\n");
   printf("  >  <| _|              |||||||\n");
   printf(" /_/\\_\\___|             |||||||\n");
   printf("  __  __      _ _   _             _   \n");
