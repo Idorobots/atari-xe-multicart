@@ -25440,11 +25440,11 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <errors>
 <approved hash="101,1,-2.54,68.58,J1_R/W,P,,,,"/>
 <approved hash="101,1,-2.54,66.04,J1_CLK2,P,,,,"/>
-<approved hash="114,1,78.74,88.8365,IC3,C,I0,,,"/>
-<approved hash="114,1,78.74,88.8365,IC3,C,I1,,,"/>
-<approved hash="114,1,78.74,88.8365,IC3,D,I0,,,"/>
-<approved hash="114,1,78.74,88.8365,IC3,D,I1,,,"/>
-<approved hash="113,1,-4.58042,78.74,J1,,,,,"/>
+<approved hash="114,1,80.886,88.8365,IC3,C,I0,,,"/>
+<approved hash="114,1,80.886,88.8365,IC3,C,I1,,,"/>
+<approved hash="114,1,80.886,88.8365,IC3,D,I0,,,"/>
+<approved hash="114,1,80.886,88.8365,IC3,D,I1,,,"/>
+<approved hash="113,1,-8.26273,78.74,J1,,,,,"/>
 <approved hash="113,1,92.8412,7.38293,JP3,,,,,"/>
 <approved hash="113,1,80.1412,7.38293,JP2,,,,,"/>
 <approved hash="113,1,105.541,7.38293,JP4,,,,,"/>
