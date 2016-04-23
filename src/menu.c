@@ -33,7 +33,7 @@ int main(void) {
   printf(" | |\\/| | || | |  _| / _/ _` | '_|  _|\n");
   printf(" |_|  |_|\\_,_|_|\\__|_\\__\\__,_|_|  \\__|\n\n");
   printf("%40s", "http://idorobots.org\n\n");
-  sleep(2);
+  sleep(1);
 
   for(;;) {
     unsigned int i = 0;
