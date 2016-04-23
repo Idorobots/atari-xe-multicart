@@ -38,7 +38,7 @@ int main(void) {
   for(;;) {
     unsigned int i = 0;
     const unsigned int num_games = sizeof(games)/sizeof(games[0]);
-    int n = 0;
+    int n = 0, ret = 0;
 
     for(; i < num_games; ++i) {
       if(i > 0 && i % 22 == 0) {
@@ -49,9 +49,9 @@ int main(void) {
     }
 
     printf("\n\nSelect a game (1-%d): ", num_games);
-    scanf("%d", &n);
+    ret = scanf("%d", &n);
 
-    if((n > 0) && (n < (num_games + 1))) {
+    if((ret == 1) && (n > 0) && (n <= num_games)) {
       selection_mask = games[n-1].mask;
 
       // Backup bootstrap() into the RAM not to loose it later.
@@ -66,6 +66,11 @@ int main(void) {
     }
 
     printf("Bad selection!\n");
+
+    if(ret == 0) {
+      scanf("%*[^\n]%1*[\n]"); // Drop errorneous line from the input buffer.
+    }
+
     sleep(1);
     clrscr();
   }
