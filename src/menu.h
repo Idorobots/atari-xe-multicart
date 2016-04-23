@@ -10,6 +10,7 @@
 
 #define CCTL ((unsigned char *) 0xD500)
 #define DOSVEC ((unsigned int *) 0x0A)
+#define CHECKSUM ((unsigned char *) 0x33D) // NOTE RAM checksum, if changed the OS will perform a cold-start.
 
 #define BOOTSTRAP_SIZE 0x400                     // FIXME Compute the size somehow.
 #define BOOTSTRAP_AREA (0x8000 - BOOTSTRAP_SIZE) // NOTE Right before the second cart bank.

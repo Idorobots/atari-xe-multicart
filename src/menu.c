@@ -19,6 +19,8 @@ void __fastcall__ bootstrap(void) {
 }
 
 int main(void) {
+  *CHECKSUM = 0x23; // Ensure cold-start in case the user resets the console.
+
   clrscr();
   printf("                       _________ \n");
   printf("                      |         |\n");
