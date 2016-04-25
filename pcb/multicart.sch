@@ -24841,6 +24841,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <part name="TP3" library="testpad" deviceset="TP" device="B1,27">
 <attribute name="TP_SIGNAL_NAME" value="DIP28 VCC"/>
 </part>
+<part name="R5" library="resistor" deviceset="R-US_" device="0204/7" value="4k7"/>
 </parts>
 <sheets>
 <sheet>
@@ -24880,7 +24881,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <instance part="IC2" gate="A" x="40.64" y="43.18" rot="MR180"/>
 <instance part="P+1" gate="VCC" x="5.08" y="137.16"/>
 <instance part="P+2" gate="VCC" x="68.58" y="27.94"/>
-<instance part="P+4" gate="VCC" x="2.54" y="27.94"/>
+<instance part="P+4" gate="VCC" x="15.24" y="27.94"/>
 <instance part="GND4" gate="1" x="17.78" y="50.8"/>
 <instance part="GND7" gate="1" x="5.08" y="119.38"/>
 <instance part="R1" gate="G$1" x="68.58" y="17.78" rot="R90"/>
@@ -24909,6 +24910,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <instance part="TP3" gate="G$1" x="93.98" y="30.48" rot="R270">
 <attribute name="TP_SIGNAL_NAME" x="93.98" y="30.48" size="1.778" layer="96" rot="R270" display="off"/>
 </instance>
+<instance part="R5" gate="G$1" x="7.62" y="22.86" rot="R180"/>
 </instances>
 <busses>
 <bus name="A[0..12]">
@@ -25185,12 +25187,6 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 </net>
 <net name="VCC" class="0">
 <segment>
-<pinref part="P+4" gate="VCC" pin="VCC"/>
-<wire x1="2.54" y1="22.86" x2="2.54" y2="25.4" width="0.1524" layer="91"/>
-<pinref part="J1" gate="_RD5" pin="P"/>
-<wire x1="-2.54" y1="22.86" x2="2.54" y2="22.86" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="P+2" gate="VCC" pin="VCC"/>
 <pinref part="R1" gate="G$1" pin="2"/>
 <wire x1="68.58" y1="22.86" x2="68.58" y2="25.4" width="0.1524" layer="91"/>
@@ -25232,6 +25228,12 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <pinref part="P+7" gate="VCC" pin="VCC"/>
 <wire x1="45.72" y1="68.58" x2="50.8" y2="68.58" width="0.1524" layer="91"/>
 <wire x1="50.8" y1="68.58" x2="50.8" y2="71.12" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="R5" gate="G$1" pin="1"/>
+<pinref part="P+4" gate="VCC" pin="VCC"/>
+<wire x1="12.7" y1="22.86" x2="15.24" y2="22.86" width="0.1524" layer="91"/>
+<wire x1="15.24" y1="22.86" x2="15.24" y2="25.4" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="GND" class="0">
@@ -25432,6 +25434,13 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="63.5" y1="7.62" x2="63.5" y2="33.02" width="0.1524" layer="91"/>
 <pinref part="IC2" gate="A" pin="2Q"/>
 <wire x1="63.5" y1="33.02" x2="53.34" y2="33.02" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$17" class="0">
+<segment>
+<pinref part="J1" gate="_RD5" pin="P"/>
+<wire x1="-2.54" y1="22.86" x2="2.54" y2="22.86" width="0.1524" layer="91"/>
+<pinref part="R5" gate="G$1" pin="2"/>
 </segment>
 </net>
 </nets>
