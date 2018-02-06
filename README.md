@@ -46,6 +46,18 @@ make
 
 This will run a script that automatically detects and arranges the games, builds the firmware and compiles a cartridge image ready for burning with your favourite EPROM burner.
 
+Alternatively, you can supply a custom ROMs directory like this:
+
+```
+make ROMS=path/to/roms/directory
+```
+
+If you encounter any troubles while building, make sure to rebuild everything cleanly:
+
+```
+make clean && make
+```
+
 # License
 
 Software & hardware licensed under the MIT license (see LICENSE file for details). The OSHW logo comes from the [BFL library](http://www.baconfatlabs.com/2011/11/oshw-eagle-symbols-for-schematic-and-silkscreen/), licensed under CC-BY-SA. Any commercial product names seen on software screenshots are for demonstration purposes only and are not included with this product.
