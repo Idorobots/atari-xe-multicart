@@ -22,13 +22,13 @@ TARGET = cart.bin
 all: $(TARGET)
 
 $(TARGET): $(MENU)
-	  ./buildcart.py --menu $^ $(ROMS) > $@
+	  ./buildcart.py --menu $^ --output $@ $(ROMS)
 
 $(MENU): $(SRC) $(MENU_CONFIG)
 	  $(CC) $(CFLAGS) $(SRC) $(LDFLAGS) -m $@.map -o $@
 
 $(MENU_CONFIG):
-	 ./buildcart.py --config $(ROMS) > $@
+	 ./buildcart.py --config --output $@ $(ROMS)
 
 .PHONY: clean
 clean:
