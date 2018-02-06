@@ -25,7 +25,7 @@ $(TARGET): $(MENU)
 	  ./buildcart.py --menu $^ --output $@ $(ROMS)
 
 $(MENU): $(MENU_CONFIG) $(SRC) $(LINKER_CONFIG)
-	  $(CC) $(CFLAGS) $(SRC) $(LDFLAGS) -m $@.map -o $@
+	  $(CC) $(CFLAGS) $(SRC) $(MENU_CONFIG) $(LDFLAGS) -m $@.map -o $@
 
 $(MENU_CONFIG):
 	 ./buildcart.py --config --output $@ $(ROMS)

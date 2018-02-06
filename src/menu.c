@@ -1,8 +1,7 @@
 #include "menu.h"
 
-const GAME_INFO games[] = {
-#include "games.c"
-};
+extern const GAME_INFO games[];
+extern const unsigned int num_games;
 
 unsigned char selection_mask;
 unsigned int DOSVEC_save;
@@ -39,7 +38,6 @@ int main(void) {
 
   for(;;) {
     unsigned int i = 0;
-    const unsigned int num_games = sizeof(games)/sizeof(games[0]);
     int n = 0, ret = 0;
 
     for(; i < num_games; ++i) {

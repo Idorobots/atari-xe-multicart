@@ -34,20 +34,24 @@ def read_roms(roms):
 def build_menu(output, cart8, cart16):
     i = 1
     for c in cart8:
-        c['out'] = 'CART_8KB({0}, "{1}"),\n'.format(i, c['title'])
+        c['out'] = 'CART_8KB({0}, "{1}")'.format(i, c['title'])
         i = i + 1
     # 16 KB carts have to start at an even offset.
     if len(cart8) % 2 == 0:
        i = i + 1
     for c in cart16:
-        c['out'] = 'CART_16KB({0}, "{1}"),\n'.format(i+1, c['title']) # 16KB games start in the second bank.
+        c['out'] = 'CART_16KB({0}, "{1}")'.format(i+1, c['title']) # 16KB games start in the second bank.
         i = i + 2
     carts = cart8 + cart16
     carts.sort(key = lambda x: x['title'])
-    out = ""
-    for c in carts:
-        out = out + c['out']
-    output.write(out[0:-2].encode('utf-8')) # Remove the last coma & newline.
+
+    output.write('#include "menu.h"\n'.encode('utf-8'))
+    output.write('const GAME_INFO games[] = {\n'.encode('utf-8'))
+    output.write(',\n'.join([c['out'] for c in carts]).encode('utf-8'))
+    output.write('\n};\n'.encode('utf-8'))
+    output.write('const unsigned int num_games = '.encode('utf-8'))
+    output.write(str(len(carts)).encode('utf-8'))
+    output.write(';'.encode('utf-8'))
 
 def build_cart(menu, output, cart8, cart16):
     m = read_file(menu)
