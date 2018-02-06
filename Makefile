@@ -13,7 +13,7 @@ export LD65_CFG = /usr/share/cc65/cfg/
 VPATH = src
 SRC = src/menu.c
 
-ROMS = roms/*
+ROMS = roms
 
 MENU_CONFIG = src/games.c
 MENU = menu.bin
@@ -22,13 +22,13 @@ TARGET = cart.bin
 all: $(TARGET)
 
 $(TARGET): $(MENU)
-	  ./buildcart.py --menu $^ $(ROMS) > $@
+	  ./buildcart.py --menu $< --output $@ $(ROMS)/*
 
-$(MENU): $(SRC) $(MENU_CONFIG)
-	  $(CC) $(CFLAGS) $(SRC) $(LDFLAGS) -m $@.map -o $@
+$(MENU): $(MENU_CONFIG) $(SRC) $(LINKER_CONFIG)
+	  $(CC) $(CFLAGS) $(SRC) $(MENU_CONFIG) $(LDFLAGS) -m $@.map -o $@
 
 $(MENU_CONFIG):
-	 ./buildcart.py --config $(ROMS) > $@
+	 ./buildcart.py --config --output $@ $(ROMS)/*
 
 .PHONY: clean
 clean:

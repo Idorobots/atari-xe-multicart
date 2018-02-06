@@ -1,0 +1,2 @@
+Put your 8k and 16k ROMs into this directory.
+The files' basenames will be used as the menu entries in the game selector, for example: 'roms/My super game.rom' will result in a menu entry for 'My super game'. 

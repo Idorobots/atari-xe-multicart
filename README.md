@@ -46,6 +46,28 @@ make
 
 This will run a script that automatically detects and arranges the games, builds the firmware and compiles a cartridge image ready for burning with your favourite EPROM burner.
 
+Alternatively, you can supply a custom ROMs directory like this:
+
+```
+make ROMS=path/to/roms/directory
+```
+
+If you encounter any troubles while building, make sure to rebuild everything cleanly:
+
+```
+make clean && make
+```
+
+# Running in an emulator
+
+Multicart images don't work in any emulators that I know of, because they are using a custom (if simplistic) bank-switching mechanism. For testing purposes, you can run just the `menu.bin` (the game selection firmware) by loading it as a standard 8k cartridge ROM in your favourite Atari 800/XE emulator. For example:
+
+```
+atari800 -xl -xlxe_rom path/to/ATARIXL.ROM -cart menu.bin
+```
+
+It'll display the game selection menu, but any attempts at selecting a game will result in restarting the game selection menu.
+
 # License
 
 Software & hardware licensed under the MIT license (see LICENSE file for details). The OSHW logo comes from the [BFL library](http://www.baconfatlabs.com/2011/11/oshw-eagle-symbols-for-schematic-and-silkscreen/), licensed under CC-BY-SA. Any commercial product names seen on software screenshots are for demonstration purposes only and are not included with this product.

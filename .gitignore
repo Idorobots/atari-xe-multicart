@@ -34,3 +34,6 @@ eagle.epf
 *.info
 
 *.eps
+roms/*.rom
+src/games.c
+*.o
