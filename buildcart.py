@@ -75,6 +75,9 @@ if __name__ == "__main__":
 
     cart8, cart16 = read_roms(args.FILE)
 
+    if len(cart8) == 0 and len(cart16) == 0:
+        print("[WARNING] No ROMs were detected. It'll still work, but you won't be able to play anything!")
+
     with open(args.output, "wb") as out:
         if args.config:
             build_menu(out, cart8, cart16)
