@@ -8,11 +8,15 @@ A multi-game cartridge for the Atari 400/800/XL/XE with software game selection 
 
 A `74HCT373` latch is used for extra address pins, it's accessed by writing to the cartridge control block (`$DF00`) causing a bank switch. After selecting appropriate ROM bank, the firmare resets the console in turn starting the game. To select another game, reboot your Atari.
 
-# Memory chip configuration
+# Assembly instructions
+## PCB
+Assuming that you already have the PCBs on hand, either by ordering them on-line or creating them yourself, the assembly is pretty simple - just solder the `74HTC373` latch, the transistor and the passive components. It is highly recommended to solder a socket for the memory chip as it makes it much easier to re-program it. **Also, keep in mind that the component side goes into the console facing down, so prepare your case accordingly.**
+
+## Memory chip configuration
 
 The PCB layout of this cartridge is customizable - you can fit any 28/32-pin JEDEC-compliant EPROM chip in the `27C` line or compatible flash memory chip with size ranging from as low as 64 kbit up to 8 mbit. Fitting larger chips means you will be able to store more game ROMs (up to 127 total), but you can also use this layout without the game selection firmware to store any single standard 8k/16k game you want.
 
-## Jumper settings
+### Jumper settings
 
 There are four jumpers on the PCB - `JP1` to `JP4` - oriented vertically when looking at the top layer with the edge connector facing down:
 
@@ -36,7 +40,7 @@ These are used to configure the cartridge for the appropriate memory chip. The f
 | 4m (27C040)       | UP   | DOWN | DOWN | DOWN |
 | 8m (27C080)       | DOWN | DOWN | DOWN | DOWN |
 
-# Building the firmware
+## Building the firmware
 
 In order to build the firmware & a cartridge image you will need some standard 8k/16k ROM files (obtainable freely on the Internet). Put your ROMs into the `roms/` directory and type:
 
