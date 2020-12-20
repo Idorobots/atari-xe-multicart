@@ -68,6 +68,19 @@ If you encounter any troubles while building, make sure to rebuild everything cl
 ```
 make clean && make
 ```
+## Building from a docker container
+
+In order to build the container itself run the following command in project directory
+
+```
+docker build -t atari_xe_multicart:latest .
+```
+
+After the container is ready to use run the following command to create `cart.bin` file. It assumes that .rom files are inside the /roms directory inside project directory.
+
+```
+docker run -ti --rm -v $(pwd)/roms/:/input/ -v $(pwd):/output/ atari_xe_multicart
+```
 
 # Running in an emulator
 
