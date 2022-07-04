@@ -41,7 +41,7 @@ These are used to configure the cartridge for the appropriate memory chip. The f
 | 8m (27C080)       | DOWN | DOWN | DOWN | DOWN |
 
 ## Building the firmware
-### Prerequisits
+### Prerequisites
 To succesfully build the firmware for the multicart, you will need to set up the following dependencies on your system:
 - `make` - the Make build system,
 - `python3` - Python programming language version 3.*,
