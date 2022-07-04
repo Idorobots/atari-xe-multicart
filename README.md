@@ -41,7 +41,15 @@ These are used to configure the cartridge for the appropriate memory chip. The f
 | 8m (27C080)       | DOWN | DOWN | DOWN | DOWN |
 
 ## Building the firmware
-In order to build the firmware & a cartridge image you will need some standard 8k/16k ROM files (obtainable freely on the Internet). Another prerequisite is having Python3 installed and available. Put your ROMs into the `roms/` directory and type:
+### Prerequisits
+To succesfully build the firmware for the multicart, you will need to set up the following dependencies on your system:
+- `make` - the Make build system,
+- `python3` - Python programming language version 3.*,
+- `gcc` - GNU Compiler Collection,
+- `cc65`- the [CC65 compiler](https://cc65.github.io/).
+
+### Build
+In order to build the firmware & a cartridge image you will need some standard 8k/16k ROM files (obtainable freely on the Internet). Install all the dependencies, put your ROMs into the `roms/` directory and type:
 
 ```
 make
