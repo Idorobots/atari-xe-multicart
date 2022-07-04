@@ -41,8 +41,7 @@ These are used to configure the cartridge for the appropriate memory chip. The f
 | 8m (27C080)       | DOWN | DOWN | DOWN | DOWN |
 
 ## Building the firmware
-
-In order to build the firmware & a cartridge image you will need some standard 8k/16k ROM files (obtainable freely on the Internet). Put your ROMs into the `roms/` directory and type:
+In order to build the firmware & a cartridge image you will need some standard 8k/16k ROM files (obtainable freely on the Internet). Another prerequisite is having Python3 installed and available. Put your ROMs into the `roms/` directory and type:
 
 ```
 make
